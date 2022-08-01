@@ -1,0 +1,48 @@
+/** 
+ * Forward declaration of guess API.
+ * @param {number} num   your guess
+ * @return 	     -1 if num is higher than the picked number
+ *			      1 if num is lower than the picked number
+ *               otherwise return 0
+ * var guess = function(num) {}
+ */
+
+/**
+ * @param {number} n
+ * @return {number}
+ */
+var guessNumber = function(n) {
+  let i;
+  let j;
+  let midlen;
+  let x;
+  
+  function mid (i,j) {
+
+      if(i > j ){
+         return 
+      }
+      else{
+         midlen = Math.floor ( (i + j ) / 2 );
+         if(guess(midlen) === 0){
+            return midlen
+         }
+         else{
+             if(guess(midlen) === 1  ){
+
+               return mid(midlen+1,j)
+             }
+             else{
+
+               return mid(i,midlen-1)
+             }
+
+         }
+      }
+      
+      
+   }
+  x = mid(0,n)
+  return x
+     
+};
