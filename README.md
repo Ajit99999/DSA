@@ -1,2 +1,3 @@
 # DSA
-Here I made this repository for solutions of various problems 
+This repository is for solutions of various problems from leetcode
+
