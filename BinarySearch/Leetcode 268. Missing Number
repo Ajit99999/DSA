@@ -1,0 +1,27 @@
+var missingNumber = function(nums) {
+    
+    let len = nums.length;
+    let i = 0;
+    let find = false;
+    while(len >= 0){
+    find = false
+    i = 0
+    while(i <= nums.length-1 ){
+        
+        if(nums[i] == len){
+            
+            find = true
+            
+            break;
+        }
+        i = i + 1;
+    }
+    
+    if(find == false){
+        return len
+    }
+    len = len - 1;
+    
+}
+    return len
+};
