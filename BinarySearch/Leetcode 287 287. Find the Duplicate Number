@@ -1,0 +1,68 @@
+/**
+ * @param {number[]} nums
+ * @return {number}
+ */
+var findDuplicate = function(nums) {
+    
+  let p = 0;
+  let q = nums.length - 1;
+  let pivot;
+  let i;
+  let j;
+  let temp;
+  let mid;
+  let sortednums = [];
+  let midlen;
+  let indicesarray = [];  
+  let ans;
+  function quicksort(nums,p,q) {
+     
+    if(p > q) {
+      return
+    }
+    else{
+       
+      function part(nums,p,q){
+         
+        pivot = nums[p]
+        i = p;
+        
+         
+        for( j = i+1 ; j<=q ; j++) {
+          
+          if( pivot >= nums[j]) {
+            i = i + 1;
+            temp = nums[j];
+            nums[j] = nums[i];
+            nums[i] = temp;
+          }
+        } 
+        
+        temp = nums[p];
+        nums[p] = nums[i];
+        nums[i] = temp;
+        return i
+         
+      }
+       
+      mid = part(nums,p,q);
+
+     quicksort(nums,p,mid-1);  
+     quicksort(nums,mid+1,q);
+     
+     return nums  
+    }
+}
+   
+sortednums = quicksort(nums,p,q)  
+   
+  for(let h = 0 , k = h + 1 ; k <= sortednums.length - 1 ; h++ , k++ )
+  {
+      if(sortednums[h] === sortednums[k] ){
+          ans = sortednums[h]
+          break
+      }
+  }
+    
+    return ans
+};
