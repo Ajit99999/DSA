@@ -1,0 +1,29 @@
+var peakIndexInMountainArray = function(arr) {
+    
+    let i = 0;
+    let j = arr.length - 2;
+    let mid;
+    let index;
+    function findpeak(arr,i,j) {
+        
+        if(i > j) {
+            return 
+        }
+        else
+        {
+            mid = Math.floor( (i + j)/2 )
+            if( ( arr[mid] > arr[mid-1] ) && (arr[mid+1] < arr[mid]) ){
+                return mid
+            }
+            else if ( arr[mid] < arr[mid+1] ){
+                 return findpeak(arr,mid+1,j)
+            }
+            else
+            {
+              return  findpeak(arr,i,mid-1)
+            }
+    }
+    }
+    index = findpeak(arr,i,j)
+    return index
+};
