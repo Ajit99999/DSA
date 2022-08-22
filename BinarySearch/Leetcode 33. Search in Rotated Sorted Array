@@ -1,0 +1,67 @@
+/**
+ * @param {number[]} nums
+ * @param {number} target
+ * @return {number}
+ */
+var search = function(nums, target) {
+       let i = 0;
+       let j = nums.length - 1;
+       let mid;
+       let ans;
+       function bs(nums,i,j) {
+                   
+                  if(i > j) {
+                      return 
+                  }
+           
+           else {
+               
+                  mid = Math.floor( (i + j)/2 )
+                   if(nums[mid] === target )
+                   {
+                      return mid 
+                   }
+                   else
+                   {
+                       
+                       if( nums[mid] >= nums[i]  )
+                           {
+                               
+                           if( (target >= nums[i] ) && ( target < nums[mid] ) )
+                          {
+                              j = mid - 1;
+                            return  bs(nums,i,j)
+                          }
+                               else
+                                   {
+                                       i = mid + 1 
+                                       return bs(nums,i,j)
+                                   }
+                               
+                                }
+                       
+                       else {
+                           
+                            if( (target > nums[mid] ) && ( target <= nums[j] ) )
+                          {
+                              i = mid + 1;
+                            return  bs(nums,i,j)
+                          }
+                               else
+                                   {
+                                       j = mid - 1 
+                                       return bs(nums,i,j)
+                                   }
+                            }
+             } 
+             }
+             }
+      
+      ans = bs(nums,i,j)
+      if(ans === undefined)
+      {
+        ans = -1    
+      }
+      return ans
+      };
+ 
