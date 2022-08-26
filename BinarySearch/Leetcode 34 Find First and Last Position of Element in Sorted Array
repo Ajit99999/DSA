@@ -1,0 +1,80 @@
+/**
+ * @param {number[]} nums
+ * @param {number} target
+ * @return {number[]}
+ */
+var searchRange = function(nums, target) {
+
+let i ;
+let j;
+let arry = [];
+let mid;
+let max = -Infinity;
+let min = -Infinity;
+let finalarry = [];
+let count = 0;
+function find (nums,i,j) { 
+        if(i > j){
+            return
+        }
+       
+        else{
+        
+            mid = Math.floor( (i+j)/2 )
+
+            if(nums[mid] === target  ) {
+                
+
+              arry.push(mid);
+              
+              if(max > mid) {
+                max = max
+                
+              }
+              else if(max < mid  ) {
+                max = mid
+                
+              }
+
+              if(count === 0){
+                min = mid
+              }
+              
+              count = count + 1;
+
+              if(min < mid){
+                min = min
+              }
+              else{
+                min = mid
+              }
+              let tempmid = mid;
+
+              find(nums,i,mid-1);
+              find(nums,tempmid + 1,j);
+
+            }
+            else if( nums[mid] < target   )
+            {
+               return  find(nums,mid+1,j )
+            }
+            else if(nums[mid] > target ) {
+
+               return find(nums,i,mid-1)
+            }
+           
+        }
+     }
+   
+   find(nums,0,nums.length - 1)
+   if(arry.length === 0){
+    finalarry.push(-1);
+     finalarry.push(-1)
+   }
+   else{
+    finalarry.push(min);
+    finalarry.push(max);
+   }
+    
+    return finalarry
+};
