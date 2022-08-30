@@ -1,0 +1,42 @@
+/**
+ * @param {number[]} nums
+ * @return {number}
+ */
+var findMin = function(nums) {
+     let i = 0;
+     let j = nums.length - 1;
+     let mid;
+     let ans;
+    
+     function find(nums,i,j)
+     {
+         if(i > j)
+         {
+            return    
+         }
+         else
+         {
+             mid = Math.floor((i+j)/2)
+             
+            if((mid === i) && (mid === j))
+            {
+                ans = nums[mid]
+                return ;
+            }
+            else if((nums[mid] - nums[j]) > (nums[mid] - nums[i] )  ){
+                 i = i + 1;
+                 return find(nums,i,j);
+            }
+            else
+            {
+                j = j - 1;
+                return find(nums,i,j)
+            }
+           
+         }    
+         
+     }
+     
+     find(nums,i,j)
+     return ans
+};
