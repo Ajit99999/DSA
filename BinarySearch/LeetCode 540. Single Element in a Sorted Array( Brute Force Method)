@@ -1,0 +1,17 @@
+/**
+ * @param {number[]} nums
+ * @return {number}
+ */
+var singleNonDuplicate = function(nums) {
+    let index ;
+    for(let i = 0 ; i<=nums.length - 1; i = i+2)
+    {
+         if(nums[i] === nums[i+1]) {
+        }
+        else{
+            index = nums[i]
+            break;
+        }
+    }
+    return index
+};
