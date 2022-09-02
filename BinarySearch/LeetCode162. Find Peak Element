@@ -1,0 +1,53 @@
+/**
+ * @param {number[]} nums
+ * @return {number}
+ */
+var findPeakElement = function(nums) {
+   
+    
+    let i = 0;
+    let j = nums.length - 1;
+    let mid;
+    let index;
+    function findpeak(nums,i,j) {
+        
+        if(i > j) {
+            return 
+        }
+        
+        
+        else
+        {
+            mid = Math.floor( (i + j)/2 )
+            
+            if( (i === mid) && (j===mid)) {
+                return mid
+            }
+            else if( j - i === 1 )
+            {
+                if(nums[i] > nums[j] )
+                    {
+                        return i
+                    }
+                else
+                    {
+                        return j
+                    }
+            }
+           
+            else if( ( nums[mid] > nums[mid-1] ) && (nums[mid+1] < nums[mid]) ){
+                return mid
+            }
+            else if ( nums[mid] < nums[mid+1] ){
+                 return findpeak(nums,mid+1,j)
+            }
+            else
+            {
+              return  findpeak(nums,i,mid-1)
+            }
+    }
+    }
+    index = findpeak(nums,i,j)
+    return index
+
+};
