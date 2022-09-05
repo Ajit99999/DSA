@@ -1,0 +1,31 @@
+/**
+ * @param {number[]} nums
+ * @return {number[]}
+ */
+var majorityElement = function(nums) {
+    
+    
+    let k =  Math.floor( (nums.length/3) )
+    let final_arry = [];
+    let obj = {};
+    for(let i = 0; i<= nums.length - 1 ;i++)
+        {
+            if(obj[nums[i]])
+                {
+                    obj[nums[i]] = obj[nums[i]] + 1
+                }
+            else
+                {
+                    obj[nums[i]] = 1
+                }
+        }
+    
+    for(let m in obj)
+        {
+            if(obj[m] > k )
+                {
+                   final_arry.push(parseInt(m)) 
+                }
+        }
+      return final_arry
+};
