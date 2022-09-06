@@ -1,0 +1,46 @@
+/**
+ * @param {character[]} letters
+ * @param {character} target
+ * @return {character}
+ */
+var nextGreatestLetter = function(letters, target) {
+    let i = 0;
+    let j = letters.length - 1;
+    let mid;    
+    let ans;
+    function bs(letters,target,i,j)
+    {
+        if(i>j)
+            {
+                return
+            }
+        else {
+            
+            mid = Math.floor((i+j)/2)
+            
+            if(target >= letters[mid])
+                {
+                    i = mid+1
+                    return bs(letters,target,i,j)
+                }
+            else if(target < letters[mid] )
+                    {
+                        if(target < letters[mid-1])
+                            {
+                                j = mid - 1
+                                return bs(letters,target,i,j)
+                            }
+                        else 
+                            {
+                                return letters[mid]
+                            }
+                    }
+           }
+    }
+    ans = bs(letters,target,i,j);
+    if(ans === undefined)
+        {
+            ans = letters[0]
+        }
+    return ans
+};
