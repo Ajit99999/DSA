@@ -1,0 +1,21 @@
+/**
+ * @param {character[]} letters
+ * @param {character} target
+ * @return {character}
+ */
+var nextGreatestLetter = function(letters, target) {
+     let ans;
+     for(let i = 0; i<=letters.length - 1;i++)
+         {
+             if(target < letters[i])
+                 {
+                     ans = letters[i]
+                     break
+                 }
+         }
+    if(ans === undefined)
+        {
+            ans = letters[0]
+        }
+    return ans
+};
