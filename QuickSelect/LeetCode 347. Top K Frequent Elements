@@ -1,0 +1,35 @@
+/**
+ * @param {number[]} nums
+ * @param {number} k
+ * @return {number[]}
+ */
+var topKFrequent = function(nums, k) {
+    
+    let obj = {}
+    let arry = [];
+    let final_arry = [];
+    for(let i = 0 ; i<=nums.length - 1 ; i++)
+        {
+            if(obj[nums[i]])
+                {
+                    obj[nums[i]] = obj[nums[i]] + 1
+                }
+            else
+                {
+                    obj[nums[i]] = 1;
+                }
+        }
+    
+    for ( let key in obj)
+        {
+            arry.push([key,obj[key]])
+        }
+    
+    arry.sort((a,b)=> b[1]-a[1])
+   
+    for(let m = 0; m < k ; m++)
+        {
+            final_arry.push(parseInt(arry[m][0]))
+        }
+    return final_arry
+};
