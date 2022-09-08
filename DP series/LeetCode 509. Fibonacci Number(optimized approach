@@ -1,0 +1,33 @@
+/**
+ * @param {number} n
+ * @return {number}
+ */
+var fib = function(n) {
+    
+    let arry = new Array(n+1);
+    function find(n)
+    {
+        if(n === 0 || n === 1 )
+            {
+                arry[n] = n
+                return arry[n]
+            }
+        else
+            {
+              if(arry[n-1] === undefined)
+                  {
+                     arry[n-1] = find(n-1)
+                  }
+              if(arry[n-2] === undefined)
+                  {
+                     arry[n-2] = find(n-2)
+                  }
+                
+              arry[n] = arry[n-1] + arry[n-2]
+              return arry[n]
+            }
+    }
+    
+    let ans = find(n)
+    return ans
+};
