@@ -1,3 +1,7 @@
 # DSA
-This repository is for solutions of various problems from leetcode
+
+This repository is made for the solutions of various problems from leetcode.
+The solutions are written mainly in JavaScript.
+
+
 
