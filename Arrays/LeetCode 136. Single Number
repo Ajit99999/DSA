@@ -1,0 +1,29 @@
+/**
+ * @param {number[]} nums
+ * @return {number}
+ */
+var singleNumber = function(nums) {
+    
+    let obj = {};
+    let ans;
+    for(let i = 0 ; i<= nums.length - 1; i++)
+        {
+            if(obj[nums[i]])
+                {
+                    obj[nums[i]] += 1
+                }
+            else
+                {
+                    obj[nums[i]] = 1
+                }
+        }
+    for(let key in obj)
+        {
+            if(obj[key] === 1)
+                {
+                    ans = parseInt(key)
+                    break;
+                }
+        }
+    return ans
+};
