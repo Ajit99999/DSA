@@ -1,0 +1,15 @@
+/**
+ * @param {number[]} salary
+ * @return {number}
+ */
+var average = function(salary) {
+    
+    salary.sort((a,b)=>a-b);
+    let sum = 0;
+    for(let i = 1; i<=salary.length - 2 ; i++)
+        {
+            sum+=salary[i]
+        }
+    let average = sum/(salary.length - 2)
+    return average
+};
