@@ -1,0 +1,21 @@
+/**
+ * @param {number} low
+ * @param {number} high
+ * @return {number}
+ */
+var countOdds = function(low, high) {
+    let count = 0;
+    let temp1;
+    if(low % 2 === 0){
+        temp1 = low + 1;
+    }
+    else{
+        temp1 = low
+    }
+    while(temp1 <= high)
+        {
+            count = count + 1;
+            temp1 = temp1 + 2;
+        }
+    return count
+};
