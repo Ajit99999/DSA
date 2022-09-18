@@ -1,0 +1,31 @@
+/**
+ * @param {number[]} nums
+ * @return {number}
+ */
+var pivotIndex = function(nums) {
+    let leftsum = 0;
+    let rightsum = 0;
+    let ans = -1;
+    for(let i = 0 ; i<= nums.length - 1 ; i++)
+        {
+            leftsum = 0;
+            rightsum = 0;
+            for(let j = 0 ; j < i;j++)
+                {
+                   leftsum+= nums[j]
+                 }
+            for(let k = i + 1 ; k < nums.length ; k++)
+                {
+                   rightsum+= nums[k]
+                }
+            if(leftsum === rightsum)
+                {
+                    ans = i
+                    break
+                }
+        }
+    
+    return ans
+    
+    
+};
