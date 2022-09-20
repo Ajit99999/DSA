@@ -1,0 +1,38 @@
+/**
+ * @param {string} s
+ * @return {boolean}
+ */
+var checkZeroOnes = function(s) {
+    let max1 = -Infinity
+    let max2 = -Infinity
+    let count1 = 0;
+    let count2 = 0;
+    for(let i = 0 ; i<= s.length - 1 ; i++)
+        {
+            if(s[i] === '1')
+                {
+                    count2 = 0;
+                    count1 += 1
+                }
+            else {
+                count1 = 0
+                count2+=1
+            }
+            
+            if(count1 > max1)
+                {
+                    max1 = count1
+                }
+            if(count2 > max2)
+                {
+                    max2 = count2
+                }
+        }
+    if(max1 > max2)
+        {
+            return true
+        }
+    else {
+        return false
+    }
+};
