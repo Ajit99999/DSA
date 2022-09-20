@@ -1,0 +1,25 @@
+/**
+ * @param {number[]} nums
+ * @return {number[]}
+ */
+var findDuplicates = function(nums) {
+    let obj = {}
+    let res = []
+    for(let i = 0 ; i<= nums.length - 1 ; i++)
+        {
+            if(obj[nums[i]])
+                {
+                    
+                    obj[nums[i]] +=1
+                    if(obj[nums[i]] === 2 )
+                        {
+                            res.push(nums[i])
+                        }
+                }
+            else
+                {
+                    obj[nums[i]] =1
+                }
+        }
+    return res
+};
