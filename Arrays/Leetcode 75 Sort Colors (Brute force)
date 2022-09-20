@@ -1,0 +1,43 @@
+/**
+ * @param {number[]} nums
+ * @return {void} Do not return anything, modify nums in-place instead.
+ */
+var sortColors = function(nums) {
+    let p = 0;
+    let q = nums.length - 1;
+    let temp;
+    function quicksort(nums,p,q)
+    {
+        if( p > q)
+        {
+         return
+        }
+        else
+        {
+           function partition(nums,p,q)
+           {
+            let pivot = nums[p];
+            let i = p;
+                
+                for( let j = i + 1 ; j <= q; j++ ) {
+                    if(nums[j] <= pivot )
+                    {
+                       i = i + 1;
+                       temp = nums[j];
+                       nums[j] = nums[i];
+                       nums[i] = temp 
+                    }
+                 }
+                temp = nums[p]
+                nums[p] = nums[i]
+                nums[i] = temp
+                return i
+               }    
+         let  m = partition(nums,p,q)   
+         quicksort(nums,p,m-1)
+         quicksort(nums,m+1,q)   
+        }
+ }
+ quicksort(nums,p,q);
+    
+};
