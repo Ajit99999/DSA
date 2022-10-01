@@ -7,14 +7,14 @@ var fib = function(n) {
     
     function find(n)
     {
-        if(n === 0 || n === 1 )
-            {
-                return n
-            }
-        else
-            {
-               return find(n-1) + find(n-2) 
-            }
+       if(n === 0 || n === 1 || n === 2)
+        {
+        return n
+        }
+      else 
+       {
+       return fib(n-1) + fib(n-2)
+       }
     }
     
     let ans = find(n)
