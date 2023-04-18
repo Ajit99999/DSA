@@ -1,0 +1,31 @@
+/**
+ * @param {string} word1
+ * @param {string} word2
+ * @return {string}
+ */
+var mergeAlternately = function(word1, word2) {
+    let i = word2.length;
+    let j = word1.length;
+    let k = 0 ;
+    if(i >= j)
+    {
+      k = i;
+    }
+    else
+    {
+      k = j;
+    }
+    let str = ""
+    for(let m = 0 ; m < k ; m++)
+    {
+      if(word1[m] !== undefined)
+      {
+        str+=word1[m]
+      }  
+      if(word2[m] !== undefined)
+      {
+           str+=word2[m]
+      }
+    }
+    return str
+};
