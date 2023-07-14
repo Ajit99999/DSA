@@ -1,0 +1,31 @@
+/**
+ * @param {Object | Array} obj
+ * @return {boolean}
+ */
+var isEmpty = function(obj) {
+    
+    if(Array.isArray(obj))
+    {
+      
+      if(obj.length !== 0)
+      {
+        return false
+      }
+      else
+      {
+        return true
+      }
+    }
+    else
+    {
+      for(let i in obj)
+      {
+        if(obj[i] !== undefined)
+        {
+           return false
+        }
+      }
+      return true
+    }
+  
+};
