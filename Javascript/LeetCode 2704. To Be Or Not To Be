@@ -1,0 +1,73 @@
+/**
+ * @param {string} val
+ * @return {Object}
+ */
+var expect = function(val) {
+    return {
+      toBe : function toBe(val2)
+      {
+         if(val2 === null)
+         {
+             throw Error("Not Equal")
+         }
+         else
+         {
+          if(typeof val === "object" || typeof val2 === "object")
+          {
+            if(Object.is(val,val2))
+          {
+              return true
+          }
+          else
+          {
+             throw Error("Not Equal") 
+          }   
+          }   
+          else
+          {
+              if(val === val2)
+              {
+                 return true
+              }
+              else
+              {
+                  throw Error("Not Equal")
+              }
+          }
+          }
+         
+      },
+      notToBe : function notToBe(val2)
+      {
+          if(typeof val === "object" || typeof val2 === "object")
+          {
+            if(Object.is(val,val2))
+          {
+              throw Error("Equal")
+          }
+          else
+          {
+              return true
+          }
+          }
+          else
+          {
+               if(val === val2)
+               {
+                   throw Error("Equal")
+               }
+               else
+               {
+                   return true
+               }
+          }
+         
+      }
+      
+    }
+};
+
+/**
+ * expect(5).toBe(5); // true
+ * expect(5).notToBe(5); // throws "Equal"
+ */
