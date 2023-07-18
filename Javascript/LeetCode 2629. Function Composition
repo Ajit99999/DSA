@@ -1,0 +1,24 @@
+/**
+ * @param {Function[]} functions
+ * @return {Function}
+ */
+var compose = function(functions) {
+    
+	return function(x) {
+      if(functions.length === 0)
+      {
+         return x
+      } 
+      else
+      {
+          let val = x
+          while(functions.length !== 0)
+          {
+              const popFunc = functions.pop()
+              val = popFunc(val)
+          }
+          return val
+      }
+        
+    }
+};
