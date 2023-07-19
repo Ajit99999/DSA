@@ -1,0 +1,34 @@
+/**
+ * @param {any[]} arr
+ * @param {number} depth
+ * @return {any[]}
+ */
+var flat = function (arr, n) {
+    let res = []
+    if(n === 0)
+    {
+      return arr
+    }
+    else
+    {
+
+    function flatArry(arr,n)
+    {
+          arr.forEach((elem)=>{
+           if( (Array.isArray(elem) && n >= 1))
+           {
+              flatArry(elem,n-1)
+           }
+           else
+           {
+              res.push(elem)
+           }
+         })
+       
+       
+    }
+    flatArry(arr,n)
+    return res
+    }
+    
+};
