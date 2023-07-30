@@ -1,0 +1,26 @@
+/**
+ * @param {number[]} nums
+ * @return {number[]}
+ */
+var productExceptSelf = function(nums) {
+    let p = 1;
+    let p2 = 1;
+    let pre = [];
+    let suf = [];
+    for(let i = 0 , j = 1; i <= nums.length - 1 , j <= nums.length - 1 ; i++ ,j++)
+    {
+        p = p * nums[i];
+        p2 = p2 * nums[nums.length - i - 1];
+        pre.push(p)
+        suf.unshift(p2)
+    }
+    pre.unshift(1)
+    suf.push(1)
+    let res = [];
+    for(let i =0 ; i <= nums.length - 1 ; i++)
+    {
+      res.push(pre[i]*suf[i])
+    }
+    console.log(pre,suf)
+    return res
+};
