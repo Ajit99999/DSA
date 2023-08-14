@@ -1,0 +1,29 @@
+/**
+ * @param {number[]} nums
+ * @return {number}
+ */
+var firstMissingPositive = function(nums) {
+     
+     let num = 1;
+     while(true)
+     {
+     let traverse = 0;
+     for(let i = 0 ; i <= nums.length - 1 ; i++)
+     {
+        if(nums[i] > 0)
+        {
+            if(num === nums[i] )
+            {
+                break;
+            }
+        }
+        traverse+=1;
+     }
+     if(num && traverse === nums.length)
+     {
+         return num
+     }
+     num++;
+    }
+    
+};
