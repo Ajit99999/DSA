@@ -1,0 +1,23 @@
+/**
+ * @param {number[]} nums
+ * @return {number}
+ */
+var firstMissingPositive = function(nums) {
+     let obj = {};
+     let num = 1;
+     for(let i = 0 ; i<= nums.length - 1 ; i++)
+     {
+         if(nums[i] > 0)
+         {
+            obj[nums[i]] = nums[i]
+         }
+     }
+     while(true)
+     {
+         if(obj[num] === undefined)
+         {
+           return num
+         }
+         num++;
+     }
+};
