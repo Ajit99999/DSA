@@ -1,0 +1,30 @@
+/**
+ * @param {number} n
+ * @return {boolean}
+ */
+var isHappy = function(n) {
+    let res = false;
+    let obj = {};
+    function calculate(n) {
+    let sum = 0;
+
+    const str = String(n);
+    for (let i = 0; i <= str.length - 1; i++) {
+      sum += str[i] * str[i];
+    }
+
+    if (sum === 1) {
+      res = true;
+      return res;
+    } else if (obj[sum]) {
+      res = false;
+      return res;
+    } else {
+      obj[sum] = sum;
+      return calculate(sum);
+    }
+  }
+
+  const result = calculate(n);
+  return result;
+};
