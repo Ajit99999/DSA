@@ -1,0 +1,16 @@
+/**
+ * @param {string} s
+ * @return {string}
+ */
+var reverseWords = function(s) {
+    const arrayFromString = s.split(" ");
+    let result = [];
+    for(let i = 0 ; i <= arrayFromString.length - 1 ; i++ )
+    {
+        if (arrayFromString[i] !== "") {
+          result.push(arrayFromString[i]);
+        }
+
+    }
+    return result.reverse().join(" ")
+};
