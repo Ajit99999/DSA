@@ -1,0 +1,19 @@
+/**
+ * @param {string} s
+ * @return {string}
+ */
+var reverseWords = function(s) {
+  let result = "";
+  for (let i = 0; i <= s.length - 1; i++) {
+    if (s[i] !== " ") {
+      result += s[i];
+      if (s[i + 1] === " ") {
+        result += " ";
+        continue;
+      }
+    }
+  }
+
+  result =   result[result.length-1] === ' ' ? result.substring(0, result.length - 1): result;
+  return result.split(" ").reverse().join(" ");
+};
