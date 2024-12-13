@@ -1,0 +1,22 @@
+/**
+ * @param {string} s
+ * @param {string} goal
+ * @return {boolean}
+ */
+var rotateString = function(s, goal) {
+    let arrayFroms = s.split("");
+    let lengthOfArray = arrayFroms.length;
+    let result = false;
+    while(lengthOfArray > 0)
+    {
+         const element = arrayFroms.shift();
+         arrayFroms.push(element);
+         if(arrayFroms.join("") === goal)
+         {
+            result = true;
+            break;
+         }
+         lengthOfArray = lengthOfArray - 1;
+    }
+    return result
+};
