@@ -1,0 +1,21 @@
+/**
+ * @param {number[]} nums
+ * @param {number} k
+ * @return {number}
+ */
+var findMaxAverage = function(nums, k) {
+
+    let sum = 0;
+    let maxAvg = -Infinity;
+    for(let i = 0 , j = 0 ; i <= (nums.length - k ) ; j++ ){
+         sum+= nums[j]
+         if((j-i)+1 === k)
+         {
+            maxAvg = Math.max(sum/k,maxAvg);
+            sum-=nums[i]
+            i++;
+         }
+    }
+
+    return maxAvg;
+};
